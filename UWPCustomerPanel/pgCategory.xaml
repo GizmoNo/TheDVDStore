@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="UWPCustomerPanel.pgCategory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPCustomerPanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock x:Name="lblProducts" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Product List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold" TextDecorations="Underline"/>
+        <TextBlock x:Name="lblInstructions" HorizontalAlignment="Center" Margin="0,47,0,0" Text="Choose A Product You Wish To View Below" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
+        <ListBox x:Name="lstProductList" HorizontalAlignment="Center" Height="632" Margin="0,76,0,0" VerticalAlignment="Top" Width="411" FontFamily="Segoe UI">
+            <ListBoxItem Content="Name                           Description                              Price" VerticalAlignment="Center"/>
+            <ListBoxItem Content="DragonBall                   Fighting                                   $50"/>
+            <ListBoxItem Content="Fairy Tail                      Fighting/Magic                         $40"/>
+            <ListBoxItem Content="Made In Abyss          Adventure/Horror Animie          $60.00"/>
+        </ListBox>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,723,0,0" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" Height="34" Width="58" Background="#FF383535" FontSize="14"/>
+        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="363,723,0,0" VerticalAlignment="Top" Background="#FF373535" Width="58" Height="35" FontSize="14"/>
+
+    </Grid>
+</Page>
