@@ -34,12 +34,12 @@
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.lblProducts = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lstOrders = new System.Windows.Forms.ListBox();
             this.lblOrders = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabProductOrderMgmt.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,6 +90,8 @@
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(475, 292);
             this.lstProducts.TabIndex = 1;
+            
+            this.lstProducts.DoubleClick += new System.EventHandler(this.lstProducts_DoubleClick);
             // 
             // lblProducts
             // 
@@ -116,6 +118,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(727, 362);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "$404";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(639, 360);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Total";
             // 
             // btnView
             // 
@@ -162,26 +184,6 @@
             this.lblOrders.TabIndex = 0;
             this.lblOrders.Text = "Customer Orders";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(639, 360);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 24);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Total";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(727, 362);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "$404";
-            // 
             // frmAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -191,6 +193,7 @@
             this.Controls.Add(this.tabProductOrderMgmt);
             this.Name = "frmAdminPanel";
             this.Text = "AdminPanel";
+            this.Load += new System.EventHandler(this.frmAdminPanel_Load);
             this.tabProductOrderMgmt.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

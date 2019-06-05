@@ -16,5 +16,12 @@ namespace AdminPanel
         {
             InitializeComponent();
         }
+
+        public static readonly frmUsed Instance = new frmUsed();
+
+        public static void Run(clsProducts prUsed)
+        {
+            frmUsed.Instance.SetDetails(prUsed);
+        }
     }
 }

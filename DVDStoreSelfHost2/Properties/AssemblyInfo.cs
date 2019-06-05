@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DVDStoreSelfHost")]
+[assembly: AssemblyTitle("DVDStoreSelfHost2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DVDStoreSelfHost")]
+[assembly: AssemblyProduct("DVDStoreSelfHost2")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("33a045fd-c1e9-47d7-acb4-9e4252df1e3e")]
+[assembly: Guid("e23fc29e-74ed-4b96-9036-86f860629674")]
 
 // Version information for an assembly consists of the following four values:
 //
