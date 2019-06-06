@@ -5,16 +5,9 @@
     xmlns:local="using:UWPCustomerPanel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid x:Name="lblName">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <TextBlock x:Name="lblCheckOut" HorizontalAlignment="Left" Margin="143,10,0,0" Text="Check Out" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" TextDecorations="Underline"/>
         <TextBlock x:Name="lblDetails" HorizontalAlignment="Left" Margin="90,42,0,0" Text="Please Enter Your Details" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="29,118,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>

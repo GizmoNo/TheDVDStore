@@ -28,5 +28,28 @@ namespace UWPCustomerPanel
 
             
         }
+
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                lstCategories.ItemsSource = await ServiceClient.GetCategoryListAsync();
+            }
+            catch (Exception)
+            {
+                lblError.Text = "An Error has occored while loading. Contact Your Administrator."; 
+            }
+        }
+
+        private void CategoryChoice()
+        {
+            if (lstCategories.SelectedItem != null)
+                Frame.Navigate(typeof(pgCategory), lstCategories.SelectedItem);
+        }
+
+        private void BtnGo_Click(object sender, RoutedEventArgs e)
+        {
+            CategoryChoice();
+        }
     }
 }

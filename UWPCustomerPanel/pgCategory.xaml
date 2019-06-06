@@ -9,22 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBlock x:Name="lblProducts" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Product List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold" TextDecorations="Underline"/>
+        <TextBlock x:Name="lblCategoryName" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Product List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold" TextDecorations="Underline"/>
         <TextBlock x:Name="lblInstructions" HorizontalAlignment="Center" Margin="0,47,0,0" Text="Choose A Product You Wish To View Below" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-        <ListBox x:Name="lstProductList" HorizontalAlignment="Center" Height="632" Margin="0,76,0,0" VerticalAlignment="Top" Width="411" FontFamily="Segoe UI">
+        <ListBox x:Name="lstProductList" HorizontalAlignment="Center" Height="597" Margin="0,111,0,0" VerticalAlignment="Top" Width="411" FontFamily="Segoe UI">
             <ListBoxItem Content="Name                           Description                              Price" VerticalAlignment="Center"/>
             <ListBoxItem Content="DragonBall                   Fighting                                   $50"/>
             <ListBoxItem Content="Fairy Tail                      Fighting/Magic                         $40"/>
             <ListBoxItem Content="Made In Abyss          Adventure/Horror Animie          $60.00"/>
         </ListBox>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,723,0,0" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" Height="34" Width="58" Background="#FF383535" FontSize="14"/>
-        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="363,723,0,0" VerticalAlignment="Top" Background="#FF373535" Width="58" Height="35" FontSize="14"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,723,0,0" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" Height="34" Width="58" Background="#FF383535" FontSize="14" Click="BtnBack_Click"/>
+        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="363,723,0,0" VerticalAlignment="Top" Background="#FF373535" Width="58" Height="35" FontSize="14" Click="BtnGo_Click"/>
+        <TextBlock x:Name="lblError" HorizontalAlignment="Center" Margin="0,713,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="284" FontSize="14"/>
+        <TextBlock x:Name="lblName" HorizontalAlignment="Left" Margin="47,87,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="197,87,0,0" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="377,87,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

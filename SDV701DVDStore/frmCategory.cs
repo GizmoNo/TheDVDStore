@@ -25,7 +25,7 @@ namespace AdminPanel
 
         public static void Run(string prCategoryName)
         {
-            //Once you open a category page up once you cannot open it again??
+            
             frmCategory lcCategoryForm;
             if (string.IsNullOrEmpty(prCategoryName) ||
                 !_CategoryFormList.TryGetValue(prCategoryName, out lcCategoryForm))
@@ -109,7 +109,7 @@ namespace AdminPanel
         private void btnBack_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
+            Hide();
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)

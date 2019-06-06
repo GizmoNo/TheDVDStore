@@ -22,9 +22,43 @@ namespace UWPCustomerPanel
     /// </summary>
     public sealed partial class pgCheckout : Page
     {
+
+        clsProducts _Product = new clsProducts();
         public pgCheckout()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            try
+            {
+                //lcArtistName = _Artist.Name;
+
+                base.OnNavigatedTo(e);
+                if (e.Parameter != null)
+                {
+                     _Product = e.Parameter as clsProducts;
+                    
+                    updateDisplay();
+                }
+                
+                    
+            }
+            catch (Exception)
+            {
+                //txbMessage.Text = "An Error Occured";
+            }
+        }
+
+        private void updateDisplay()
+        {
+            lblQuanityValue.Text = _Product.QuanityOrdered.ToString();
+            lblPriceValue.Text = _Product.Price.ToString();
+            //decimal lcResult = _Product.Price * _Product.QuanityOrdered;
+            //lblTotalValue.Text = lcResult.ToString();
+            lblTotalValue.Text = (_Product.Price * _Product.QuanityOrdered).ToString();
+
         }
     }
 }

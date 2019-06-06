@@ -9,29 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <TextBlock x:Name="lblProductInformation" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Product Information" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" TextDecorations="Underline" FontWeight="Bold"/>
         <TextBlock x:Name="lblName" HorizontalAlignment="Left" Margin="10,97,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="10,180,0,0" Text="Description:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="11,384,0,0" Text="Price:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="-1.674,-0.675" FontWeight="Bold"/>
-        <TextBlock x:Name="lblFormat" HorizontalAlignment="Left" Margin="10,262,0,0" Text="Format:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="lblType" HorizontalAlignment="Left" Margin="10,262,0,0" Text="Type:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <TextBlock x:Name="lblQuanityOnHand" HorizontalAlignment="Left" Margin="221,97,0,0" Text="Quanity On Hand:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="txtQuanity" HorizontalAlignment="Center" Margin="0,523,0,0" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.484,1.569" FontFamily="Segoe UI" Width="122"/>
-        <Button x:Name="btnCheckOut" Content="Check Out" HorizontalAlignment="Left" Margin="324,696,0,0" VerticalAlignment="Top" Background="#FF494949" Height="62" Width="98"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,696,0,0" VerticalAlignment="Top" Background="#FF494949" Height="62" Width="98"/>
-        <TextBlock HorizontalAlignment="Left" Margin="74,100,0,0" Text="Made In Abyss" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.386,0.442"/>
-        <TextBlock HorizontalAlignment="Left" Margin="119,185,0,0" Text="Adventure, Horror Animie" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="73,388,0,0" Text="$60.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="378,101,0,0" Text="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-        <TextBlock HorizontalAlignment="Left" Margin="85,265,0,0" Text="BluRay" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblQuanity" HorizontalAlignment="Left" Margin="11,523,0,0" Text="Select Quanity:" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="11,451,0,0" Text="Condition:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="119,454,0,0" Text="OK" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="btnCheckOut" Content="Check Out" HorizontalAlignment="Left" Margin="324,696,0,0" VerticalAlignment="Top" Background="#FF494949" Height="62" Width="98" Click="BtnCheckOut_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,696,0,0" VerticalAlignment="Top" Background="#FF494949" Height="62" Width="98" Click="BtnBack_Click"/>
+        <TextBlock x:Name="lblDVDName" HorizontalAlignment="Left" Margin="74,100,0,0" Text="Made In Abyss" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.386,0.442"/>
+        <TextBlock x:Name="lblDescriptionResult" HorizontalAlignment="Left" Margin="119,185,0,0" Text="Adventure, Horror Animie" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblPriceResult" HorizontalAlignment="Left" Margin="73,388,0,0" Text="$60.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblQuanityOnHandResult" HorizontalAlignment="Left" Margin="378,101,0,0" Text="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
+        <TextBlock x:Name="lblTypeResult" HorizontalAlignment="Left" Margin="85,265,0,0" Text="BluRay" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ContentControl x:Name="ctcProductSpecs" Content="ContentControl" HorizontalAlignment="Center" Margin="0,413,0,0" VerticalAlignment="Top" Height="278" Width="411"/>
 
     </Grid>
 </Page>

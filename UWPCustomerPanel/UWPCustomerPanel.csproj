@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="clsUtil.cs" />
+    <Compile Include="DTO.cs" />
+    <Compile Include="IWorkControl.cs" />
     <Compile Include="pgCategory.xaml.cs">
       <DependentUpon>pgCategory.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,13 @@
       <DependentUpon>pgProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceClient.cs" />
+    <Compile Include="ucNew.xaml.cs">
+      <DependentUpon>ucNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucUsed.xaml.cs">
+      <DependentUpon>ucUsed.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -167,6 +177,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pgProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucUsed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

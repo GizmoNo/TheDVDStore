@@ -26,7 +26,8 @@ namespace DVDStoreSelfHost2
             public int QuanityInStock { get; set; }
             public string DVDCondition { get; set; }
             public string Category { get; set; }
-        }
+            public int QuanityOrdered { get; set; }
+    }
 
     
 
