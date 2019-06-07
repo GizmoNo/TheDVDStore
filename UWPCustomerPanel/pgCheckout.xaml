@@ -17,14 +17,15 @@
         <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="237,416,0,0" Text="Price Per Unit:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="lblPhone" HorizontalAlignment="Left" Margin="29,282,0,0" Text="Phone:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="lblProductName" HorizontalAlignment="Left" Margin="121,0,0,0" Text="Made In Abyss" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" TextDecorations="Underline"/>
-        <Button x:Name="btnBuy" Content="Buy" HorizontalAlignment="Left" Margin="291,692,0,0" VerticalAlignment="Top" FontSize="18" Height="66" Width="130" Background="#FF626060"/>
-        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Left" Margin="10,693,0,0" VerticalAlignment="Top" FontSize="18" Height="61" Width="133" Background="#FF626060"/>
-        <TextBox HorizontalAlignment="Left" Margin="121,114,0,0" Text="Fred Jones" VerticalAlignment="Top" RenderTransformOrigin="0.097,-0.372" Width="285" FontFamily="Segoe UI"/>
-        <TextBox HorizontalAlignment="Left" Margin="121,200,0,0" Text="54 Hill Street" VerticalAlignment="Top" Width="285"/>
-        <TextBox HorizontalAlignment="Left" Margin="121,274,0,0" Text="5448791" VerticalAlignment="Top" Width="285"/>
+        <Button x:Name="btnBuy" Content="Buy" HorizontalAlignment="Left" Margin="291,692,0,0" VerticalAlignment="Top" FontSize="18" Height="66" Width="130" Background="#FF626060" Click="BtnBuy_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Left" Margin="10,693,0,0" VerticalAlignment="Top" FontSize="18" Height="61" Width="133" Background="#FF626060" Click="BtnCancel_Click"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="121,114,0,0" Text="Fred Jones" VerticalAlignment="Top" RenderTransformOrigin="0.097,-0.372" Width="285" FontFamily="Segoe UI"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="121,200,0,0" Text="54 Hill Street" VerticalAlignment="Top" Width="285"/>
+        <TextBox x:Name="txtPhoneNumber" HorizontalAlignment="Left" Margin="121,274,0,0" Text="5448791" VerticalAlignment="Top" Width="285"/>
         <TextBlock x:Name="lblQuanityValue" HorizontalAlignment="Left" Margin="127,419,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI"/>
         <TextBlock x:Name="lblPriceValue" HorizontalAlignment="Left" Margin="356,419,0,0" Text="$60.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblTotalValue" HorizontalAlignment="Left" Margin="292,494,0,0" Text="$120.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="11,559,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="77"/>
 
     </Grid>
 </Page>

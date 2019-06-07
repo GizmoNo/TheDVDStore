@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Web.Http;
 
 namespace DVDStoreSelfHost2
 {
@@ -34,6 +35,23 @@ namespace DVDStoreSelfHost2
                     Description = (string)lcResult.Rows[0]["Description"],
                     
                     CategoryList = getCategoryProducts(Name)
+                };
+            else
+                return null;
+        }
+
+        public clsProducts GetProduct(string Name)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("Name", Name);
+            DataTable lcResult =
+                clsDBConnection.GetDataTable("SELECT * FROM Products WHERE DVDName = @Name", par);
+            if (lcResult.Rows.Count > 0)
+                return new clsProducts()
+                {
+                    QuanityInStock = (Int32)lcResult.Rows[0]["QuanityInStock"],
+                    DVDName = (string)lcResult.Rows[0]["DVDName"]
+                    
                 };
             else
                 return null;
@@ -95,6 +113,45 @@ namespace DVDStoreSelfHost2
             }
         }
 
+        public string CreateOrder(clsOrder prOrder)
+        {   // insert     
+            try
+            {
+                int lcRecCount = clsDBConnection.Execute("INSERT INTO Orders " +
+                    "(Quanity, Name, Address, Phone, PricePerItem, ProductsName) " +
+                    "VALUES (@Quanity, @Name, @Address, @Phone, @PricePerItem, @ProductsName)",
+                    prepareOrderParameters(prOrder));
+                if (lcRecCount == 1)
+                    return "Your Order Has Been Submitted";
+                else
+                    return "Unexpected Product Insert Count: " + lcRecCount;
+
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        [HttpPut]public string UpdateQuanityInStock(clsProducts prProduct)
+        {
+            try
+            {
+
+                int lcRecCount = clsDBConnection.Execute(
+                    "UPDATE Products SET QuanityInStock = @QuanityInStock WHERE DVDName = @DVDName",
+                    prepareProductParameters(prProduct));
+                if (lcRecCount == 1)
+                    return "Order Updated";
+                else
+                    return "Unexpected order update count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
         private Dictionary<string, object> prepareProductParameters(clsProducts prProducts)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(10);
@@ -108,6 +165,19 @@ namespace DVDStoreSelfHost2
             par.Add("QuanityInStock", prProducts.QuanityInStock);
             
 
+            return par;
+        }
+
+        private Dictionary<string, object> prepareOrderParameters(clsOrder prOrder)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(10);
+            par.Add("Name", prOrder.Name);
+            par.Add("Address", prOrder.Address);
+            par.Add("Phone", prOrder.PhoneNumber);
+            par.Add("Quanity", prOrder.Quanity);
+            par.Add("PricePerItem", prOrder.PricePerItem);
+            par.Add("ProductsName", prOrder.ProductName);
+            
             return par;
         }
 
