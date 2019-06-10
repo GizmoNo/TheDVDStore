@@ -37,6 +37,7 @@ namespace DVDStoreSelfHost2
         public int PhoneNumber { get; set; }
         public decimal PricePerItem { get; set; }
         public string ProductName { get; set; }
+        public List<clsOrder> OrderList { get; set; }
     }
 
 

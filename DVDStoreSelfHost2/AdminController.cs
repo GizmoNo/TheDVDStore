@@ -21,7 +21,7 @@ namespace DVDStoreSelfHost2
 
             return lcNames;
         }
-
+                
         public clsCategory GetProductList(string Name)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(1);
@@ -40,6 +40,17 @@ namespace DVDStoreSelfHost2
                 return null;
         }
 
+        public List<clsOrder> GetOrderList()
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            //par.Add("Name", Name);
+            DataTable lcResult = clsDBConnection.GetDataTable("SELECT * FROM Orders", par);
+            List<clsOrder> lcOrders = new List<clsOrder>();
+            foreach (DataRow dr in lcResult.Rows)
+                lcOrders.Add(dataRow2Orders(dr));
+            return lcOrders;
+        }
+
         public clsProducts GetProduct(string Name)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(1);
@@ -52,6 +63,28 @@ namespace DVDStoreSelfHost2
                     QuanityInStock = (Int32)lcResult.Rows[0]["QuanityInStock"],
                     DVDName = (string)lcResult.Rows[0]["DVDName"]
                     
+                };
+            else
+                return null;
+        }
+
+        public clsOrder GetOrderInfo(string ID)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("ID", ID);
+            DataTable lcResult =
+                clsDBConnection.GetDataTable("SELECT * FROM Orders WHERE OrderNumber = @ID", par);
+            if (lcResult.Rows.Count > 0)
+                return new clsOrder()
+                {
+                    Name = (string)lcResult.Rows[0]["Name"],
+                    Address = (string)lcResult.Rows[0]["Address"],
+                    PhoneNumber = (int)lcResult.Rows[0]["Phone"],
+                    Quanity = (int)lcResult.Rows[0]["Quanity"],
+                    PricePerItem = (int)lcResult.Rows[0]["PricePerItem"],
+                    ProductName = (string)lcResult.Rows[0]["ProductsName"],
+                    OrderNumber = (int)lcResult.Rows[0]["OrderNumber"]
+
                 };
             else
                 return null;
@@ -104,6 +137,24 @@ namespace DVDStoreSelfHost2
                     prepareProductParameters(prProduct));
                 if (lcRecCount == 1)
                     return "One Product Deleted";
+                else
+                    return "Unexpected Product Delete count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        public string DeleteOrder(clsOrder prOrder)
+        {
+            try
+            {
+                int lcRecCount = clsDBConnection.Execute(
+                    "DELETE FROM Orders WHERE OrderNumber = @OrderNumber",
+                    prepareOrderParameters(prOrder));
+                if (lcRecCount == 1)
+                    return "One Order Deleted";
                 else
                     return "Unexpected Product Delete count: " + lcRecCount;
             }
@@ -177,6 +228,7 @@ namespace DVDStoreSelfHost2
             par.Add("Quanity", prOrder.Quanity);
             par.Add("PricePerItem", prOrder.PricePerItem);
             par.Add("ProductsName", prOrder.ProductName);
+            par.Add("OrderNumber", prOrder.OrderNumber);
             
             return par;
         }
@@ -191,7 +243,7 @@ namespace DVDStoreSelfHost2
                 lcProducts.Add(dataRow2Products(dr));
             return lcProducts;
         }
-
+              
         private clsProducts dataRow2Products(DataRow prDataRow)
         {
             return new clsProducts()
@@ -204,6 +256,21 @@ namespace DVDStoreSelfHost2
                 QuanityInStock = Convert.ToInt32(prDataRow["QuanityInStock"]),
                 DVDCondition = Convert.ToString(prDataRow["DVDCondition"]),
                 Category = Convert.ToString(prDataRow["Category"])
+            };
+        }
+
+        private clsOrder dataRow2Orders(DataRow prDataRow)
+        {
+            return new clsOrder()
+            {
+                Name = Convert.ToString(prDataRow["Name"]),
+                Address = Convert.ToString(prDataRow["Address"]),
+                PhoneNumber = Convert.ToInt32(prDataRow["Phone"]),
+                Quanity = Convert.ToInt32(prDataRow["Quanity"]),
+                PricePerItem = Convert.ToDecimal(prDataRow["PricePerItem"]),
+                ProductName = Convert.ToString(prDataRow["ProductsName"]),
+                OrderNumber = Convert.ToInt32(prDataRow["OrderNumber"])
+                
             };
         }
 

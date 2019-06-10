@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.lblOrderNo = new System.Windows.Forms.Label();
-            this.lblQuanityValue = new System.Windows.Forms.Label();
-            this.lblPricePerItemValue = new System.Windows.Forms.Label();
+            this.lblQuanity = new System.Windows.Forms.Label();
+            this.lblPricePerItem = new System.Windows.Forms.Label();
             this.lblProductNameValue = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lvlOrderNoValue = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblOrderNoValue = new System.Windows.Forms.Label();
+            this.lblPricePerItemValue = new System.Windows.Forms.Label();
+            this.lblQuanityValue = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.lblPhoneValue = new System.Windows.Forms.Label();
             this.lblAddressValue = new System.Windows.Forms.Label();
             this.lblNameValue = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblTotalCost = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -59,27 +59,27 @@
             this.lblOrderNo.TabIndex = 0;
             this.lblOrderNo.Text = "OrderNo";
             // 
-            // lblQuanityValue
+            // lblQuanity
             // 
-            this.lblQuanityValue.AutoSize = true;
-            this.lblQuanityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuanityValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblQuanityValue.Location = new System.Drawing.Point(366, 209);
-            this.lblQuanityValue.Name = "lblQuanityValue";
-            this.lblQuanityValue.Size = new System.Drawing.Size(101, 29);
-            this.lblQuanityValue.TabIndex = 1;
-            this.lblQuanityValue.Text = "Quanity";
+            this.lblQuanity.AutoSize = true;
+            this.lblQuanity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuanity.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblQuanity.Location = new System.Drawing.Point(366, 209);
+            this.lblQuanity.Name = "lblQuanity";
+            this.lblQuanity.Size = new System.Drawing.Size(101, 29);
+            this.lblQuanity.TabIndex = 1;
+            this.lblQuanity.Text = "Quanity";
             // 
-            // lblPricePerItemValue
+            // lblPricePerItem
             // 
-            this.lblPricePerItemValue.AutoSize = true;
-            this.lblPricePerItemValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPricePerItemValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPricePerItemValue.Location = new System.Drawing.Point(366, 321);
-            this.lblPricePerItemValue.Name = "lblPricePerItemValue";
-            this.lblPricePerItemValue.Size = new System.Drawing.Size(165, 29);
-            this.lblPricePerItemValue.TabIndex = 2;
-            this.lblPricePerItemValue.Text = "PricePerItem";
+            this.lblPricePerItem.AutoSize = true;
+            this.lblPricePerItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPricePerItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPricePerItem.Location = new System.Drawing.Point(366, 321);
+            this.lblPricePerItem.Name = "lblPricePerItem";
+            this.lblPricePerItem.Size = new System.Drawing.Size(165, 29);
+            this.lblPricePerItem.TabIndex = 2;
+            this.lblPricePerItem.Text = "PricePerItem";
             // 
             // lblProductNameValue
             // 
@@ -147,49 +147,49 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Total";
             // 
-            // lvlOrderNoValue
+            // lblOrderNoValue
             // 
-            this.lvlOrderNoValue.AutoSize = true;
-            this.lvlOrderNoValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvlOrderNoValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lvlOrderNoValue.Location = new System.Drawing.Point(192, 99);
-            this.lvlOrderNoValue.Name = "lvlOrderNoValue";
-            this.lvlOrderNoValue.Size = new System.Drawing.Size(30, 24);
-            this.lvlOrderNoValue.TabIndex = 9;
-            this.lvlOrderNoValue.Text = "45";
+            this.lblOrderNoValue.AutoSize = true;
+            this.lblOrderNoValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderNoValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblOrderNoValue.Location = new System.Drawing.Point(192, 99);
+            this.lblOrderNoValue.Name = "lblOrderNoValue";
+            this.lblOrderNoValue.Size = new System.Drawing.Size(30, 24);
+            this.lblOrderNoValue.TabIndex = 9;
+            this.lblOrderNoValue.Text = "45";
             // 
-            // label11
+            // lblPricePerItemValue
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(594, 321);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 24);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "$60";
+            this.lblPricePerItemValue.AutoSize = true;
+            this.lblPricePerItemValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPricePerItemValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPricePerItemValue.Location = new System.Drawing.Point(594, 321);
+            this.lblPricePerItemValue.Name = "lblPricePerItemValue";
+            this.lblPricePerItemValue.Size = new System.Drawing.Size(40, 24);
+            this.lblPricePerItemValue.TabIndex = 10;
+            this.lblPricePerItemValue.Text = "$60";
             // 
-            // label12
+            // lblQuanityValue
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(594, 209);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 24);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "2";
+            this.lblQuanityValue.AutoSize = true;
+            this.lblQuanityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuanityValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblQuanityValue.Location = new System.Drawing.Point(594, 209);
+            this.lblQuanityValue.Name = "lblQuanityValue";
+            this.lblQuanityValue.Size = new System.Drawing.Size(20, 24);
+            this.lblQuanityValue.TabIndex = 11;
+            this.lblQuanityValue.Text = "2";
             // 
-            // label13
+            // lblProductName
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(594, 104);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(134, 24);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Made In Abyss";
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblProductName.Location = new System.Drawing.Point(594, 104);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(134, 24);
+            this.lblProductName.TabIndex = 12;
+            this.lblProductName.Text = "Made In Abyss";
             // 
             // lblPhoneValue
             // 
@@ -224,17 +224,17 @@
             this.lblNameValue.TabIndex = 15;
             this.lblNameValue.Text = "Fred Jones";
             // 
-            // label17
+            // lblTotalCost
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Maroon;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label17.Location = new System.Drawing.Point(704, 412);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(50, 24);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "$120";
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.BackColor = System.Drawing.Color.Maroon;
+            this.lblTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCost.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTotalCost.Location = new System.Drawing.Point(672, 412);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.Size = new System.Drawing.Size(50, 24);
+            this.lblTotalCost.TabIndex = 16;
+            this.lblTotalCost.Text = "$120";
             // 
             // btnBack
             // 
@@ -244,6 +244,7 @@
             this.btnBack.TabIndex = 17;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmViewOrder
             // 
@@ -252,22 +253,22 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(762, 455);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lblTotalCost);
             this.Controls.Add(this.lblNameValue);
             this.Controls.Add(this.lblAddressValue);
             this.Controls.Add(this.lblPhoneValue);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.lvlOrderNoValue);
+            this.Controls.Add(this.lblProductName);
+            this.Controls.Add(this.lblQuanityValue);
+            this.Controls.Add(this.lblPricePerItemValue);
+            this.Controls.Add(this.lblOrderNoValue);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblProductNameValue);
-            this.Controls.Add(this.lblPricePerItemValue);
-            this.Controls.Add(this.lblQuanityValue);
+            this.Controls.Add(this.lblPricePerItem);
+            this.Controls.Add(this.lblQuanity);
             this.Controls.Add(this.lblOrderNo);
             this.Name = "frmViewOrder";
             this.Text = "frmViewOrder";
@@ -279,22 +280,22 @@
         #endregion
 
         private System.Windows.Forms.Label lblOrderNo;
-        private System.Windows.Forms.Label lblQuanityValue;
-        private System.Windows.Forms.Label lblPricePerItemValue;
+        private System.Windows.Forms.Label lblQuanity;
+        private System.Windows.Forms.Label lblPricePerItem;
         private System.Windows.Forms.Label lblProductNameValue;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lvlOrderNoValue;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblOrderNoValue;
+        private System.Windows.Forms.Label lblPricePerItemValue;
+        private System.Windows.Forms.Label lblQuanityValue;
+        private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblPhoneValue;
         private System.Windows.Forms.Label lblAddressValue;
         private System.Windows.Forms.Label lblNameValue;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Button btnBack;
     }
 }

@@ -18,7 +18,8 @@ namespace AdminPanel
         }
 
         public static readonly frmAdminPanel _Instance = new frmAdminPanel();
-        
+        public frmViewOrder _ViewOrder = new frmViewOrder();
+        private clsOrder _Order = new clsOrder();
 
         private frmCategory _NewProductForm = new frmCategory();
         public async void UpdateDisplay()
@@ -27,6 +28,16 @@ namespace AdminPanel
             {
                 lstProducts.DataSource = null;
                 lstProducts.DataSource = await ServiceClient.GetCategoryListAsync();
+                lstOrders.DataSource = null;
+                _Order.OrderList = await ServiceClient.GetOrderListAsync();
+                lstOrders.DataSource = _Order.OrderList;
+
+                decimal lcTotal = 0;
+                foreach (clsOrder lcOrder in _Order.OrderList)
+                {
+                    lcTotal += lcOrder.PricePerItem * lcOrder.Quanity;
+                }
+                lblTotal.Text = lcTotal.ToString("C");
             }
             catch
             {
@@ -63,6 +74,23 @@ namespace AdminPanel
 
                              
 
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
+            _ViewOrder.showOrderInfo(lstOrders.SelectedItem as clsOrder);
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult lcResult = MessageBox.Show("Are You Sure You Want To Delete This Order?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (lcResult == DialogResult.Yes)
+            {
+                MessageBox.Show(await ServiceClient.DeleteOrderAsync(lstOrders.SelectedItem as clsOrder));
+                
+                UpdateDisplay();
             }
         }
     }

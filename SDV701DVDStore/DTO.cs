@@ -41,6 +41,25 @@ namespace AdminPanel
             return new clsProducts() { DVDType = prChoice };
         }
     }
-    
+
+    public class clsOrder
+    {
+        public int OrderNumber { get; set; }
+        public int Quanity { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int PhoneNumber { get; set; }
+        public decimal PricePerItem { get; set; }
+        public string ProductName { get; set; }
+        public List<clsOrder> OrderList { get; set; }
+
+
+        public override string ToString()
+        {
+            return
+                Name + "\t" + "\t" + PricePerItem + "\t" + "\t" + Quanity;
+        }
+    }
+
 
 }

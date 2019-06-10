@@ -18,11 +18,25 @@ namespace AdminPanel
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/admin/GetCategoryList/"));
         }
 
+        internal async static Task<List<clsOrder>> GetOrderListAsync()
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<clsOrder>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/admin/GetOrderList/"));
+        }
+
         internal async static Task<clsCategory> GetProductListAsync(string prCategoryName)
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<clsCategory>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/admin/GetProductList?Name=" + prCategoryName));
+        }
+
+        internal async static Task<clsOrder> GetOrderInfoAsync(int prOrderID)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsOrder>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/admin/GetOrderInfo?ID=" + prOrderID));
         }
 
         internal async static Task<string> InsertProductAsync(clsProducts prProducts)
@@ -40,6 +54,13 @@ namespace AdminPanel
             
             return await InsertOrUpdateAsync(prProductName, "http://localhost:60064/api/admin/DeleteProduct", "DELETE");
                                                                                     
+        }
+
+        internal async static Task<string> DeleteOrderAsync(clsOrder prOrderID)
+        {
+
+            return await InsertOrUpdateAsync(prOrderID, "http://localhost:60064/api/admin/DeleteOrder", "DELETE");
+
         }
 
         private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
