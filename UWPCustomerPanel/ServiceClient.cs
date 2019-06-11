@@ -24,7 +24,7 @@ namespace UWPCustomerPanel
                 return JsonConvert.DeserializeObject<clsCategory>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/admin/GetProductList?Name=" + prCategoryName));
         }
-
+                
         internal async static Task<clsProducts> GetProductAsync(string prProductName)
         {
             using (HttpClient lcHttpClient = new HttpClient())

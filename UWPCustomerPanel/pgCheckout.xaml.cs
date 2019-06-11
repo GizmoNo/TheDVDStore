@@ -24,44 +24,92 @@ namespace UWPCustomerPanel
     public sealed partial class pgCheckout : Page
     {
 
-        clsProducts _Product = new clsProducts();
+        clsProducts _CustomerProduct = new clsProducts();
+        clsProducts _DatabaseProduct = new clsProducts();
         clsOrder _Order = new clsOrder();
         public pgCheckout()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             try
             {
-                //lcArtistName = _Artist.Name;
-
+                
                 base.OnNavigatedTo(e);
                 if (e.Parameter != null)
                 {
-                     _Product = e.Parameter as clsProducts;
-                    
-                    updateDisplay();
+                    await ErrorCheckingStockAvalibility(e);
                 }
                 
-                    
             }
             catch (Exception)
             {
-                //txbMessage.Text = "An Error Occured";
+                lblError.Text = "An Error Occured";
             }
+        }
+
+        private async System.Threading.Tasks.Task ErrorCheckingStockAvalibility(NavigationEventArgs e)
+        {
+            _CustomerProduct = e.Parameter as clsProducts;
+            _DatabaseProduct = await ServiceClient.GetProductAsync(_CustomerProduct.DVDName);
+            if (_DatabaseProduct.QuanityInStock >= 1)
+            {
+                btnBuy.IsEnabled = true;
+            }
+            else
+            {
+                btnBuy.IsEnabled = false;
+                lblError.Text = "We are Currently Out Of Stock Please Check Back Later";
+            }
+            if (_DatabaseProduct.QuanityInStock < _CustomerProduct.QuanityOrdered)
+            {
+                btnBuy.IsEnabled = false;
+                lblError.Text = "You Are Trying To Order More Than We Have In Stock. Please Go Back And Change " +
+                    "The Quanity You Wish Or Order To Match Or Be Less Than We Have In Stock";
+
+            }
+            else
+            {
+                btnBuy.IsEnabled = true;
+            }
+            updateDisplay();
         }
 
         private void updateDisplay()
         {
-            lblQuanityValue.Text = _Product.QuanityOrdered.ToString();
-            lblPriceValue.Text = _Product.Price.ToString();
-            //decimal lcResult = _Product.Price * _Product.QuanityOrdered;
-            //lblTotalValue.Text = lcResult.ToString();
-            lblTotalValue.Text = (_Product.Price * _Product.QuanityOrdered).ToString();
-            lblProductName.Text = _Product.DVDName.ToString();
+            lblQuanityValue.Text = _CustomerProduct.QuanityOrdered.ToString();
+            lblPriceValue.Text = _CustomerProduct.Price.ToString();
+            lblTotalValue.Text = (_CustomerProduct.Price * _CustomerProduct.QuanityOrdered).ToString();
+            lblProductName.Text = _CustomerProduct.DVDName.ToString();
 
+        }
+
+        private async void updateDisplayOnDatabaseChanage()
+        {
+            _DatabaseProduct = await ServiceClient.GetProductAsync(_CustomerProduct.DVDName);
+            if (_DatabaseProduct.QuanityInStock >= 1)
+            {
+                btnBuy.IsEnabled = true;
+            }
+            else
+            {
+                btnBuy.IsEnabled = false;
+                lblError.Text = "We are Currently Out Of Stock Please Check Back Later";
+            }
+            if (_DatabaseProduct.QuanityInStock < _CustomerProduct.QuanityOrdered)
+            {
+                btnBuy.IsEnabled = false;
+                lblError.Text = "You Are Trying To Order More Than We Have In Stock. Please Go Back And Change " +
+                    "The Quanity You Wish Or Order To Match Or Be Less Than We Have In Stock";
+
+            }
+            else
+            {
+                btnBuy.IsEnabled = true;
+            }
+            updateDisplay();
         }
 
         private void pushData()
@@ -75,23 +123,43 @@ namespace UWPCustomerPanel
 
         }
 
+        //Error Check Customer Input Fields
         private async void BtnBuy_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog lcMessageBox = new MessageDialog("Confirm Order?");
             lcMessageBox.Commands.Add(new UICommand("Yes", async x =>
             {
-                pushData();
-                await ServiceClient.CreateOrder(_Order);
-                _Product = await ServiceClient.GetProductAsync(_Order.ProductName);
-                _Product.QuanityInStock = _Product.QuanityInStock - _Order.Quanity;
-                await ServiceClient.UpdateQuanityInStock(_Product);
-                MessageDialog lcConfirmOrder = new MessageDialog("Thank You Your Order Has Been Placed. We Will Now Redirect You Back To The Main Screen");
-                lcConfirmOrder.Commands.Add(new UICommand("OK",  y => 
+                _DatabaseProduct = await ServiceClient.GetProductAsync(_CustomerProduct.DVDName);
+                if(_DatabaseProduct.QuanityInStock != _CustomerProduct.QuanityInStock)
                 {
-                    Frame.Navigate(typeof(pgCustomerPanel));
-                }));
-                await lcConfirmOrder.ShowAsync();
-                //lblError.Text +=
+                    MessageDialog lcCheckDatabaseForChanage = new MessageDialog("Stock On Hand Has Changed. The Form Will Now Refresh");
+                    lcCheckDatabaseForChanage.Commands.Add(new UICommand("Reload", async z =>
+                    {
+                        int lcCustomerQuanityOrdered;
+                        lcCustomerQuanityOrdered = _CustomerProduct.QuanityOrdered;
+                       _CustomerProduct = await ServiceClient.GetProductAsync(_DatabaseProduct.DVDName);
+                        _CustomerProduct.QuanityOrdered = lcCustomerQuanityOrdered;
+                        updateDisplayOnDatabaseChanage();
+
+                    }));
+                    await lcCheckDatabaseForChanage.ShowAsync();
+                }
+                else
+                {
+                    pushData();
+                    await ServiceClient.CreateOrder(_Order);
+                    _CustomerProduct = await ServiceClient.GetProductAsync(_Order.ProductName);
+                    _CustomerProduct.QuanityInStock = _CustomerProduct.QuanityInStock - _Order.Quanity;
+                    await ServiceClient.UpdateQuanityInStock(_CustomerProduct);
+                    MessageDialog lcConfirmOrder = new MessageDialog("Thank You Your Order Has Been Placed. We Will Now Redirect You Back To The Main Screen");
+                    lcConfirmOrder.Commands.Add(new UICommand("OK", y =>
+                    {
+                        Frame.Navigate(typeof(pgCustomerPanel));
+                    }));
+                    await lcConfirmOrder.ShowAsync();
+                }
+                
+                
             }));
             lcMessageBox.Commands.Add(new UICommand("No"));
             await lcMessageBox.ShowAsync();

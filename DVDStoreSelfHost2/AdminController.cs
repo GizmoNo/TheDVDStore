@@ -61,13 +61,21 @@ namespace DVDStoreSelfHost2
                 return new clsProducts()
                 {
                     QuanityInStock = (Int32)lcResult.Rows[0]["QuanityInStock"],
-                    DVDName = (string)lcResult.Rows[0]["DVDName"]
+                    DVDName = (string)lcResult.Rows[0]["DVDName"],
+                    Description = (string)lcResult.Rows[0]["Description"],
+                    Price = (decimal)lcResult.Rows[0]["Price"],
+                    DVDType = (string)lcResult.Rows[0]["DVDType"],
+                    LastModified = (DateTime)lcResult.Rows[0]["LastModified"],
+                    DVDCondition = (string)lcResult.Rows[0]["DVDCondition"],
+                    Category = (string)lcResult.Rows[0]["Category"],
                     
+
                 };
             else
                 return null;
         }
 
+        
         public clsOrder GetOrderInfo(string ID)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(1);

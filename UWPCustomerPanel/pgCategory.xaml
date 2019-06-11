@@ -17,8 +17,8 @@
             <ListBoxItem Content="Fairy Tail                      Fighting/Magic                         $40"/>
             <ListBoxItem Content="Made In Abyss          Adventure/Horror Animie          $60.00"/>
         </ListBox>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,723,0,0" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" Height="34" Width="58" Background="#FF383535" FontSize="14" Click="BtnBack_Click"/>
-        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="363,723,0,0" VerticalAlignment="Top" Background="#FF373535" Width="58" Height="35" FontSize="14" Click="BtnGo_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,713,0,0" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" Height="44" Width="74" Background="#FF383535" FontSize="14" Click="BtnBack_Click"/>
+        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="344,713,0,0" VerticalAlignment="Top" Background="#FF373535" Width="77" Height="45" FontSize="14" Click="BtnGo_Click"/>
         <TextBlock x:Name="lblError" HorizontalAlignment="Center" Margin="0,713,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="284" FontSize="14"/>
         <TextBlock x:Name="lblName" HorizontalAlignment="Left" Margin="47,87,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="197,87,0,0" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top"/>
