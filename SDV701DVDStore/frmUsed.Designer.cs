@@ -46,6 +46,7 @@
             // txtCondition
             // 
             this.txtCondition.Location = new System.Drawing.Point(256, 472);
+            this.txtCondition.MaxLength = 254;
             this.txtCondition.Name = "txtCondition";
             this.txtCondition.Size = new System.Drawing.Size(157, 22);
             this.txtCondition.TabIndex = 14;

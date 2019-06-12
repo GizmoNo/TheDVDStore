@@ -102,8 +102,16 @@ namespace AdminPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmProduct.DispatchProductForm(lstProducts.SelectedItem as clsProducts);
-            refreshFormFromDB(_Category.CategoryName);
+            try
+            {
+                frmProduct.DispatchProductForm(lstProducts.SelectedItem as clsProducts);
+                refreshFormFromDB(_Category.CategoryName);
+            }
+            catch
+            {
+                MessageBox.Show("Please Select A Product To Edit");
+            }
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -114,15 +122,37 @@ namespace AdminPanel
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult lcResult = MessageBox.Show("Are You Sure You Want To Delete This Product?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(lcResult == DialogResult.Yes)
+            if (lstProducts.SelectedItem == null)
             {
-                MessageBox.Show(await ServiceClient.DeleteProductAsync(lstProducts.SelectedItem as clsProducts));
-                refreshFormFromDB(_Category.CategoryName);
-                frmAdminPanel._Instance.UpdateDisplay();
+                MessageBox.Show("Please Select The Product You Wish To Delete");
             }
+            else
+            {
+                DialogResult lcResult = MessageBox.Show("Are You Sure You Want To Delete This Product?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (lcResult == DialogResult.Yes)
+                {
+                    MessageBox.Show(await ServiceClient.DeleteProductAsync(lstProducts.SelectedItem as clsProducts));
+                    refreshFormFromDB(_Category.CategoryName);
+                    frmAdminPanel._Instance.UpdateDisplay();
+                }
+            }
+
+            
                        
             
+        }
+
+        private void frmCategory_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                e.Cancel = true;
+                Hide();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

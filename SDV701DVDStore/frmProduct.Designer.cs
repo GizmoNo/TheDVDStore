@@ -56,7 +56,9 @@
             // 
             // txtName
             // 
+            this.txtName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtName.Location = new System.Drawing.Point(256, 84);
+            this.txtName.MaxLength = 254;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(149, 22);
             this.txtName.TabIndex = 1;
@@ -97,20 +99,25 @@
             // txtTotalUnits
             // 
             this.txtTotalUnits.Location = new System.Drawing.Point(256, 324);
+            this.txtTotalUnits.MaxLength = 5;
             this.txtTotalUnits.Name = "txtTotalUnits";
             this.txtTotalUnits.Size = new System.Drawing.Size(157, 22);
             this.txtTotalUnits.TabIndex = 6;
+            this.txtTotalUnits.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalUnits_KeyPress);
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(256, 236);
+            this.txtPrice.MaxLength = 5;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(135, 22);
             this.txtPrice.TabIndex = 7;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(256, 157);
+            this.txtDescription.MaxLength = 254;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(459, 22);
             this.txtDescription.TabIndex = 8;
@@ -189,6 +196,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmProduct";
             this.Text = "New Product";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProduct_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

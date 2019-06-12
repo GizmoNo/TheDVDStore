@@ -19,13 +19,13 @@
         <TextBlock x:Name="lblProductName" HorizontalAlignment="Left" Margin="121,0,0,0" Text="Made In Abyss" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" TextDecorations="Underline"/>
         <Button x:Name="btnBuy" Content="Buy" HorizontalAlignment="Left" Margin="291,692,0,0" VerticalAlignment="Top" FontSize="18" Height="66" Width="130" Background="#FF626060" Click="BtnBuy_Click"/>
         <Button x:Name="btnCancel" Content="Cancel Order" HorizontalAlignment="Left" Margin="10,693,0,0" VerticalAlignment="Top" FontSize="18" Height="61" Width="133" Background="#FF626060" Click="BtnCancel_Click"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="121,114,0,0" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.097,-0.372" Width="285" FontFamily="Segoe UI"/>
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="121,200,0,0" Text="" VerticalAlignment="Top" Width="285"/>
-        <TextBox x:Name="txtPhoneNumber" HorizontalAlignment="Left" Margin="121,274,0,0" Text="" VerticalAlignment="Top" Width="285"/>
+        <TextBox MaxLength ="20" x:Name="txtName" HorizontalAlignment="Left" Margin="121,114,0,0" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.097,-0.372" Width="285" FontFamily="Segoe UI"/>
+        <TextBox MaxLength ="50" x:Name="txtAddress" HorizontalAlignment="Left" Margin="121,200,0,0" Text="" VerticalAlignment="Top" Width="285"/>
         <TextBlock x:Name="lblQuanityValue" HorizontalAlignment="Left" Margin="127,419,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI"/>
         <TextBlock x:Name="lblPriceValue" HorizontalAlignment="Left" Margin="356,419,0,0" Text="$60.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblTotalValue" HorizontalAlignment="Left" Margin="292,494,0,0" Text="$120.00" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="10,603,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="77"/>
+        <TextBox MaxLength ="20" x:Name="txtPhoneNumber" HorizontalAlignment="Left" Margin="121,274,0,0" Text="" VerticalAlignment="Top" Width="285" TextChanged="TxtPhoneNumber_TextChanged"/>
 
     </Grid>
 </Page>

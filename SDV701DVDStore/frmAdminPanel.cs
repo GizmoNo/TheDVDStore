@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdminPanel
@@ -79,19 +72,35 @@ namespace AdminPanel
 
         private void btnView_Click(object sender, EventArgs e)
         {
-
-            _ViewOrder.showOrderInfo(lstOrders.SelectedItem as clsOrder);
+            if (lstOrders.SelectedItem == null)
+            {
+                MessageBox.Show("Please Select An Order You Wish To View");
+            }
+            else
+            {
+                _ViewOrder.showOrderInfo(lstOrders.SelectedItem as clsOrder);
+            }
+            
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult lcResult = MessageBox.Show("Are You Sure You Want To Delete This Order?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (lcResult == DialogResult.Yes)
+
+            if (lstOrders.SelectedItem == null)
             {
-                MessageBox.Show(await ServiceClient.DeleteOrderAsync(lstOrders.SelectedItem as clsOrder));
-                
-                UpdateDisplay();
+                MessageBox.Show("Please Select An Order You Wish To Delete");
             }
+            else
+            {
+                DialogResult lcResult = MessageBox.Show("Are You Sure You Want To Delete This Order?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (lcResult == DialogResult.Yes)
+                {
+                    MessageBox.Show(await ServiceClient.DeleteOrderAsync(lstOrders.SelectedItem as clsOrder));
+
+                    UpdateDisplay();
+                }
+            }
+            
         }
     }
 

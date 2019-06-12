@@ -59,6 +59,7 @@ namespace AdminPanel
                     lcResult = CheckAllFields();
                     if (lcResult == true)
                     {
+                        pushData();
                         MessageBox.Show(await ServiceClient.UpdateProductAsync(_Products));
                         txtName.Enabled = false;
                         Hide();
@@ -81,6 +82,10 @@ namespace AdminPanel
             if (_Products.DVDName != null)
             { 
                 txtName.Enabled = false;
+            }
+            else
+            {
+                txtName.Enabled = true;
             }
             txtName.Text = _Products.DVDName;
             txtDescription.Text = _Products.Description;
@@ -128,43 +133,56 @@ namespace AdminPanel
 
         private bool CheckAllFields()
         {
-            if(txtName.Text == "")
+            bool lcResult = true;
+            foreach (TextBox TB in this.Controls.OfType<TextBox>())
             {
-                return false;
-                
-            }
-            else
-            {
-                if (txtDescription.Text == "")
+                if (string.IsNullOrEmpty(TB.Text) || string.IsNullOrWhiteSpace(TB.Text))
                 {
-                    return false;
-                   
+                    lcResult =  false;
+                    //TB.BackColor = Color.Red;
+                    break;
                 }
                 else
                 {
-                    if (txtPrice.Text == "")
-                    {
-                        return false;
-                        
-                    }
-                    else
-                    {
-                        if (txtTotalUnits.Text == "")
-                        {
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
-                        }
-                    }
+                    lcResult = true;
                 }
             }
-            
-            
-            
+            return lcResult;
+
+
         }
 
-        
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckInput(e);
+        }
+                
+        private void txtTotalUnits_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckInput(e);
+        }
+
+        private static void CheckInput(KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void frmProduct_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                e.Cancel = true;
+                Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

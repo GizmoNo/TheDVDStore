@@ -34,15 +34,15 @@
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.lblProducts = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lstOrders = new System.Windows.Forms.ListBox();
             this.lblOrders = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabProductOrderMgmt.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -68,7 +68,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(778, 406);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -121,8 +121,35 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(778, 406);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(330, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "PricePerUnit";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(461, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Quanitiy";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(162, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Customer Name";
             // 
             // lblTotal
             // 
@@ -190,33 +217,6 @@
             this.lblOrders.Size = new System.Drawing.Size(393, 55);
             this.lblOrders.TabIndex = 0;
             this.lblOrders.Text = "Customer Orders";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(162, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Customer Name";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(461, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Quanitiy";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(330, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 17);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "PricePerUnit";
             // 
             // frmAdminPanel
             // 

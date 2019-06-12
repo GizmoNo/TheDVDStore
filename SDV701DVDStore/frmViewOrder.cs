@@ -42,5 +42,18 @@ namespace AdminPanel
         {
             Hide();
         }
+
+        private void frmViewOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                e.Cancel = true;
+                Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

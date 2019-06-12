@@ -193,6 +193,7 @@
             this.Controls.Add(this.lblCategory);
             this.Name = "frmCategory";
             this.Text = "Category";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCategory_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

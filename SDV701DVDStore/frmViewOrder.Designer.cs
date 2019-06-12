@@ -272,6 +272,7 @@
             this.Controls.Add(this.lblOrderNo);
             this.Name = "frmViewOrder";
             this.Text = "frmViewOrder";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmViewOrder_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,7 +13,7 @@
         <TextBlock x:Name="lblCondition" HorizontalAlignment="Left" Margin="10,82,0,0" Text="Condition" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="lblConditionResult" HorizontalAlignment="Left" Margin="108,82,0,0" Text="OK" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Width="282"/>
         <TextBlock x:Name="lblQuanity" HorizontalAlignment="Left" Margin="10,150,0,0" Text="Quanity" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="txtQuanity" HorizontalAlignment="Left" Margin="108,144,0,0" Text="" VerticalAlignment="Top" FontFamily="Segoe UI" Width="281"/>
+        <TextBox x:Name="txtQuanity" HorizontalAlignment="Left" Margin="108,144,0,0" Text="" VerticalAlignment="Top" FontFamily="Segoe UI" Width="281" TextChanged="TxtQuanity_TextChanged"/>
 
     </Grid>
 </UserControl>

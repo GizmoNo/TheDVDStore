@@ -85,9 +85,16 @@ namespace UWPCustomerPanel
 
         private void BtnCheckOut_Click(object sender, RoutedEventArgs e)
         {
-            //Disable this button if the Quanity in stock = 0
-            pushData();
-            Frame.Navigate(typeof(pgCheckout), _Products);
+            try
+            {
+                pushData();
+                Frame.Navigate(typeof(pgCheckout), _Products);
+            }
+            catch
+            {
+                lblError.Text = "Please Enter A Quanity";
+            }
+            
         }
     }
 }

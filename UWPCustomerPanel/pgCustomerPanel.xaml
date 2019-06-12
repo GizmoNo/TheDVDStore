@@ -11,17 +11,13 @@
     <Grid Loaded="Grid_Loaded">
         <TextBlock x:Name="lblStoreTitle" HorizontalAlignment="Left" Margin="61,10,0,0" Text="Welcome To The DVD Store" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" TextDecorations="Underline" FontWeight="Bold" FontFamily="Segoe UI" Width="317"/>
         <TextBlock x:Name="lblInstructions" HorizontalAlignment="Center" Margin="0,42,0,0" Text="Please Choose A Category You Wish To View" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-        <ListBox x:Name="lstCategories" HorizontalAlignment="Center" Height="625" VerticalAlignment="Center" Width="411">
-            <ListBoxItem Content="Category" FontSize="24" FontWeight="Normal" HorizontalAlignment="Center"/>
-            <ListBoxItem Content="Used DVDs" FontSize="16"/>
-            <ListBoxItem Content="New DVDs" FontSize="16"/>
-        </ListBox>
+        <ListBox x:Name="lstCategories" HorizontalAlignment="Center" Height="625" VerticalAlignment="Center" Width="411"/>
         <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="351,709,0,0" VerticalAlignment="Top" FontSize="14" Height="43" Width="71" Background="#FF343333" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="BtnGo_Click">
             <Button.RenderTransform>
                 <CompositeTransform Rotation="360.562"/>
             </Button.RenderTransform>
         </Button>
-        <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="10,702,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="332" FontSize="14"/>
+        <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="10,702,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="332" FontSize="14"/>
 
     </Grid>
 </Page>

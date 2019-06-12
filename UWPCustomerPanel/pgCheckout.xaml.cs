@@ -126,49 +126,81 @@ namespace UWPCustomerPanel
         //Error Check Customer Input Fields
         private async void BtnBuy_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog lcMessageBox = new MessageDialog("Confirm Order?");
-            lcMessageBox.Commands.Add(new UICommand("Yes", async x =>
-            {
-                _DatabaseProduct = await ServiceClient.GetProductAsync(_CustomerProduct.DVDName);
-                if(_DatabaseProduct.QuanityInStock != _CustomerProduct.QuanityInStock)
-                {
-                    MessageDialog lcCheckDatabaseForChanage = new MessageDialog("Stock On Hand Has Changed. The Form Will Now Refresh");
-                    lcCheckDatabaseForChanage.Commands.Add(new UICommand("Reload", async z =>
-                    {
-                        int lcCustomerQuanityOrdered;
-                        lcCustomerQuanityOrdered = _CustomerProduct.QuanityOrdered;
-                       _CustomerProduct = await ServiceClient.GetProductAsync(_DatabaseProduct.DVDName);
-                        _CustomerProduct.QuanityOrdered = lcCustomerQuanityOrdered;
-                        updateDisplayOnDatabaseChanage();
 
-                    }));
-                    await lcCheckDatabaseForChanage.ShowAsync();
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                lblError.Text = "Please Enter Your Name";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrWhiteSpace(txtAddress.Text))
+                {
+                    lblError.Text = "Please Enter Your Address";
                 }
                 else
                 {
-                    pushData();
-                    await ServiceClient.CreateOrder(_Order);
-                    _CustomerProduct = await ServiceClient.GetProductAsync(_Order.ProductName);
-                    _CustomerProduct.QuanityInStock = _CustomerProduct.QuanityInStock - _Order.Quanity;
-                    await ServiceClient.UpdateQuanityInStock(_CustomerProduct);
-                    MessageDialog lcConfirmOrder = new MessageDialog("Thank You Your Order Has Been Placed. We Will Now Redirect You Back To The Main Screen");
-                    lcConfirmOrder.Commands.Add(new UICommand("OK", y =>
+                    if (string.IsNullOrEmpty(txtPhoneNumber.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
                     {
-                        Frame.Navigate(typeof(pgCustomerPanel));
-                    }));
-                    await lcConfirmOrder.ShowAsync();
+                        lblError.Text = "Please Enter Your PhoneNumber";
+                    }
+                    else
+                    {
+                        MessageDialog lcMessageBox = new MessageDialog("Confirm Order?");
+                        lcMessageBox.Commands.Add(new UICommand("Yes", async x =>
+                        {
+                            _DatabaseProduct = await ServiceClient.GetProductAsync(_CustomerProduct.DVDName);
+                            if (_DatabaseProduct.QuanityInStock != _CustomerProduct.QuanityInStock)
+                            {
+                                MessageDialog lcCheckDatabaseForChanage = new MessageDialog("Stock On Hand Has Changed. The Form Will Now Refresh");
+                                lcCheckDatabaseForChanage.Commands.Add(new UICommand("Reload", async z =>
+                                {
+                                    int lcCustomerQuanityOrdered;
+                                    lcCustomerQuanityOrdered = _CustomerProduct.QuanityOrdered;
+                                    _CustomerProduct = await ServiceClient.GetProductAsync(_DatabaseProduct.DVDName);
+                                    _CustomerProduct.QuanityOrdered = lcCustomerQuanityOrdered;
+                                    updateDisplayOnDatabaseChanage();
+
+
+                                }));
+                                await lcCheckDatabaseForChanage.ShowAsync();
+                            }
+                            else
+                            {
+                                pushData();
+                                await ServiceClient.CreateOrder(_Order);
+                                _CustomerProduct = await ServiceClient.GetProductAsync(_Order.ProductName);
+                                _CustomerProduct.QuanityInStock = _CustomerProduct.QuanityInStock - _Order.Quanity;
+                                await ServiceClient.UpdateQuanityInStock(_CustomerProduct);
+                                MessageDialog lcConfirmOrder = new MessageDialog("Thank You Your Order Has Been Placed. We Will Now Redirect You Back To The Main Screen");
+                                lcConfirmOrder.Commands.Add(new UICommand("OK", y =>
+                                {
+                                    Frame.Navigate(typeof(pgCustomerPanel));
+                                }));
+                                await lcConfirmOrder.ShowAsync();
+                            }
+
+
+                        }));
+                        lcMessageBox.Commands.Add(new UICommand("No"));
+                        await lcMessageBox.ShowAsync();
+                    }
                 }
-                
-                
-            }));
-            lcMessageBox.Commands.Add(new UICommand("No"));
-            await lcMessageBox.ShowAsync();
+            }
+
             
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+
+        private void TxtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPhoneNumber.Text, "[^0-9]"))
+            {
+                txtPhoneNumber.Text = txtPhoneNumber.Text.Remove(txtPhoneNumber.Text.Length - 1);
+            }
         }
     }
 }

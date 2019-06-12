@@ -34,5 +34,14 @@ namespace UWPCustomerPanel
         {
             
         }
+
+        private void TxtQuanity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtQuanity.Text, "[^0-9]"))
+            {
+               txtQuanity.Text = txtQuanity.Text.Remove(txtQuanity.Text.Length - 1);
+            }
+        }
+        
     }
 }
