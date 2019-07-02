@@ -193,6 +193,7 @@ namespace UWPCustomerPanel
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+            
         }
 
         private void TxtPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)

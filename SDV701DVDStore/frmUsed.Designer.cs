@@ -50,7 +50,6 @@
             this.txtCondition.Name = "txtCondition";
             this.txtCondition.Size = new System.Drawing.Size(157, 22);
             this.txtCondition.TabIndex = 14;
-            this.txtCondition.Text = "Bad";
             // 
             // frmUsed
             // 

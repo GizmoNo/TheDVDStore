@@ -23,5 +23,17 @@ namespace AdminPanel
         {
             frmUsed.Instance.SetDetails(prUsed);
         }
+
+        protected override void updateForm()
+        {
+            base.updateForm();
+            txtCondition.Text = _Products.DVDCondition;
+        }
+
+        protected override void pushData()
+        {
+            base.pushData();
+            _Products.DVDCondition = txtCondition.Text;
+        }
     }
 }

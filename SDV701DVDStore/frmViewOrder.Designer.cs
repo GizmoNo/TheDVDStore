@@ -31,7 +31,7 @@
             this.lblOrderNo = new System.Windows.Forms.Label();
             this.lblQuanity = new System.Windows.Forms.Label();
             this.lblPricePerItem = new System.Windows.Forms.Label();
-            this.lblProductNameValue = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.lblOrderNoValue = new System.Windows.Forms.Label();
             this.lblPricePerItemValue = new System.Windows.Forms.Label();
             this.lblQuanityValue = new System.Windows.Forms.Label();
-            this.lblProductName = new System.Windows.Forms.Label();
+            this.lblProductNameValue = new System.Windows.Forms.Label();
             this.lblPhoneValue = new System.Windows.Forms.Label();
             this.lblAddressValue = new System.Windows.Forms.Label();
             this.lblNameValue = new System.Windows.Forms.Label();
@@ -81,16 +81,16 @@
             this.lblPricePerItem.TabIndex = 2;
             this.lblPricePerItem.Text = "PricePerItem";
             // 
-            // lblProductNameValue
+            // lblProductName
             // 
-            this.lblProductNameValue.AutoSize = true;
-            this.lblProductNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductNameValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblProductNameValue.Location = new System.Drawing.Point(366, 99);
-            this.lblProductNameValue.Name = "lblProductNameValue";
-            this.lblProductNameValue.Size = new System.Drawing.Size(179, 29);
-            this.lblProductNameValue.TabIndex = 3;
-            this.lblProductNameValue.Text = "Product Name";
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblProductName.Location = new System.Drawing.Point(366, 99);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(179, 29);
+            this.lblProductName.TabIndex = 3;
+            this.lblProductName.Text = "Product Name";
             // 
             // lblPhone
             // 
@@ -180,16 +180,16 @@
             this.lblQuanityValue.TabIndex = 11;
             this.lblQuanityValue.Text = "2";
             // 
-            // lblProductName
+            // lblProductNameValue
             // 
-            this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblProductName.Location = new System.Drawing.Point(594, 104);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(134, 24);
-            this.lblProductName.TabIndex = 12;
-            this.lblProductName.Text = "Made In Abyss";
+            this.lblProductNameValue.AutoSize = true;
+            this.lblProductNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductNameValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblProductNameValue.Location = new System.Drawing.Point(594, 104);
+            this.lblProductNameValue.Name = "lblProductNameValue";
+            this.lblProductNameValue.Size = new System.Drawing.Size(134, 24);
+            this.lblProductNameValue.TabIndex = 12;
+            this.lblProductNameValue.Text = "Made In Abyss";
             // 
             // lblPhoneValue
             // 
@@ -257,7 +257,7 @@
             this.Controls.Add(this.lblNameValue);
             this.Controls.Add(this.lblAddressValue);
             this.Controls.Add(this.lblPhoneValue);
-            this.Controls.Add(this.lblProductName);
+            this.Controls.Add(this.lblProductNameValue);
             this.Controls.Add(this.lblQuanityValue);
             this.Controls.Add(this.lblPricePerItemValue);
             this.Controls.Add(this.lblOrderNoValue);
@@ -266,7 +266,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblProductNameValue);
+            this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.lblPricePerItem);
             this.Controls.Add(this.lblQuanity);
             this.Controls.Add(this.lblOrderNo);
@@ -283,7 +283,7 @@
         private System.Windows.Forms.Label lblOrderNo;
         private System.Windows.Forms.Label lblQuanity;
         private System.Windows.Forms.Label lblPricePerItem;
-        private System.Windows.Forms.Label lblProductNameValue;
+        private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblName;
@@ -292,7 +292,7 @@
         private System.Windows.Forms.Label lblOrderNoValue;
         private System.Windows.Forms.Label lblPricePerItemValue;
         private System.Windows.Forms.Label lblQuanityValue;
-        private System.Windows.Forms.Label lblProductName;
+        private System.Windows.Forms.Label lblProductNameValue;
         private System.Windows.Forms.Label lblPhoneValue;
         private System.Windows.Forms.Label lblAddressValue;
         private System.Windows.Forms.Label lblNameValue;

@@ -32,7 +32,7 @@ namespace AdminPanel
             lblNameValue.Text = _Order.Name.ToString();
             lblAddressValue.Text = _Order.Address.ToString();
             lblPhoneValue.Text = _Order.PhoneNumber.ToString();
-            lblProductNameValue.Text = _Order.ProductName.ToString();
+            lblProductName.Text = _Order.ProductName.ToString();
             lblQuanityValue.Text = _Order.Quanity.ToString();
             lblPricePerItemValue.Text = _Order.PricePerItem.ToString();
             lblTotalCost.Text = Convert.ToString(_Order.PricePerItem * _Order.Quanity);

@@ -92,6 +92,7 @@ namespace AdminPanel
             txtPrice.Text = Convert.ToString(_Products.Price);
             txtTotalUnits.Text = _Products.QuanityInStock.ToString();
             lblLastModified.Text = _Products.LastModified.ToString();
+            
 
         }
 
